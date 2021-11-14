@@ -1,1 +1,1 @@
-web:gunicorn SSpro.wsgi
+web: gunicorn SSpro.wsgi
