@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../static/favicon_circle.ico" type="image/x-icon">
+    <title>Search Results</title>
+
+    <style>
+        .css-serial{
+            counter-reset: serial-number;
+            text-align: center;
+        }
+        .css-serial td:first-child::before{
+            counter-increment: serial-number;
+            content: counter(serial-number);
+        }
+td{
+    font-size:30px;
+    color:white;
+}
+th{
+    font-size:20px;
+    
+    
+}
+body{
+   background-repeat:no-repeat;
+   background-size:100% 500%;
+   
+
+}
+h1{
+    color:white;
+
+}
+
+
+    </style>
+</head>
+<body>
+    <body bgcolor="black">
+    {% if ct %}
+    <h1>Search Results are here :</h1>
+    
+    <br>
+
+    <br><br><br><br><br><br>
+    {% else %}
+    <h1>No such match is found!</h1>
+
+    {% endif %}
+    <div>
+    <center>
+    <b>         <h2>previous feedback</h2>
+              <h2>Total:{{ct|length}}</h2>  
+
+        <table class="css-serial" border="2px" cellpsacing="10px" cellpadding="5px" width="90%">
+            <tr>
+            <th style="background:yellow;">Sr. No.</th>
+            <th style="background:orange;">CITY</th>
+            <th style="background:cyan;" >name</th>
+            <th style="background:pink;" >phone</th>
+            <th style="background:yellow;" >Address</th>
+            <th style="background:orange;">no. of cases</th>
+            <th style="background:cyan;" >cases block</th>
+            <th style="background:pink;">recent cases</th>
+            </tr>
+            {% for i in ct %}
+            <tr>
+                <td></td>
+                <td>{{i.city}}</td>
+                <td>{{i.hospital_Name}}</td>
+                <td>{{i.phone}}</td>
+                <td>{{i.address}}</td>
+                <td>{{i.no_of_cases}}</td>
+                <td>{{i.desc1}}</td>
+                <td>{{i.desc2}}</td>
+
+            </tr>
+            {% endfor %}
+        </table>
+        </b>
+        </center>
+    </div>
+    <br><br><br><br><br><br>
+ 
+</body>
+</html>

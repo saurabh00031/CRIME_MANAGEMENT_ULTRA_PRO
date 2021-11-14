@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>usr_edit_x</title>
+</head>
+<body>
+    <div class="usr">
+        <p>--Welcome <span>{{request.user}}--</span></p> 
+    </div>
+
+    {% for message in messages %}
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+        <strong>WARNING:</strong> {{message}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+
+    <div class="gp"></div>
+
+    <div class="container">
+    <form action="" method="POST">
+        {% csrf_token %}
+            <div class="hpname">
+                <p>Full Name</p>
+                <div class="icon">
+                    <i class="fa fa-user"></i>
+                </div>
+                <input type="text" placeholder="Enter Full Name" name="fname" value="{{usr_info.full_Name}}" required>
+            </div>
+            <div class="phnum">
+                <p>Phone number</p>
+                <div class="icon">
+                    <i class="fa fa-phone"></i>
+                </div>
+                <input type="text" placeholder="Enter Phone Number" name="phnum" value="{{usr_info.phone}}" required>
+            </div>
+            <div class="email">
+                <p>Email Address</p>
+                <div class="icon">
+                    <i class="fa fa-envelope"></i>
+                </div>
+                <input type="email" placeholder="Enter your email" name="email" value="{{my_usr_inf.email}}" required>
+            </div>
+            <div class="city">
+                <p>City</p>
+                <div class="icon">
+                    <i class="fa fa-building"></i>
+                </div>
+                <input type="text" placeholder="Enter City Name" name="city" value="{{usr_info.city}}" required>
+            </div>
+            <div class="addr">
+                <p>Address</p>
+                <div class="icon">
+                    <i class="fa fa-address-card"></i>
+                </div>
+                <input type="text" placeholder="Enter address" name="addres" value="{{usr_info.address}}" required>
+            </div>
+            
+            <div class="sbmt">
+                <button type="submit">Update</button>
+            </div>
+        </form> 
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+<h1>your profile</h1>
+
+<ul>
+<li>{{usr_info.address}}</li>
+<li>{{usr_info.full_Name}}</li>
+<li>{{usr_info.city}}</li>
+<li>{{usr_info.phone}}</li>
+</ul>
+</body>
+    
+
+
+
+</html>
