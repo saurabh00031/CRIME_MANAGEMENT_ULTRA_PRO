@@ -34,7 +34,7 @@ SECRET_KEY = 'django-insecure-yedzfs=izfzvblyl(uh%etur(&)4smow65lha0@cc0!vv&xn2_
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['crime-management-ultra--007.herokuapp.com']
 
 AUTH_USER_MODEL = 'SSapp.User'
 
